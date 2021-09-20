@@ -25,5 +25,3 @@ jobs:
 
      - run: echo hello > path/to/artifact/world.txt
 
-x
-
