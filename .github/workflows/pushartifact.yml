@@ -23,10 +23,11 @@ jobs:
   
      - run: echo hello > world.txt
 
-     - uses: fixpoint/azblob-upload-artifact@v4
+     - uses: bacongobbler/azure-blob-storage-upload@v1.2.0
        with:
         connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-        name: artifact123
-        path: https://artifactstorage1.blob.core.windows.net/artifact123
+        source_dir: 'https://artifactstorage1.blob.core.windows.net/artifact123'
+        container_name: 'artifact123'
+        sync: true
 
 
