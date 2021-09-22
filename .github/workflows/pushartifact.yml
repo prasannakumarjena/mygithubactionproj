@@ -28,5 +28,9 @@ jobs:
      - uses: bacongobbler/azure-blob-storage-upload@v1.2.0
        with:
         connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        source_dir: _dist
+        container_name: artifact123
+        extra_args: '--pattern *.tar.gz'
+        sync: false
 
 
