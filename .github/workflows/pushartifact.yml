@@ -20,17 +20,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
      - uses: actions/checkout@v1
-
-     - run: mkdir -p path/to/artifact
   
-     - run: echo hello > path/to/artifact/world.txt
+     - run: echo hello > world.txt
 
-     - uses: bacongobbler/azure-blob-storage-upload@v1.2.0
+     - uses: fixpoint/azblob-upload-artifact@v4
        with:
         connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-        source_dir: _dist
-        container_name: artifact123
-        extra_args: '--pattern *.tar.gz'
-        sync: false
+        name: artifact123
+        path: https://artifactstorage1.blob.core.windows.net/artifact123
 
 
