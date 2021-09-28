@@ -21,7 +21,7 @@ jobs:
     steps:
      - uses: actions/checkout@v1
      - run: mkdir test
-     - run: echo hello > test/world3.txt
+     - run: echo hello > test/world4.txt
 
      - uses: bacongobbler/azure-blob-storage-upload@v1.2.0
        with:
