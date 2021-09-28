@@ -28,7 +28,7 @@ jobs:
        
         connection_string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
         source_dir: 'test'
-        container_name: 'artifact123'
+        container_name: 'promotiontest-1'
         sync: true
 
 
