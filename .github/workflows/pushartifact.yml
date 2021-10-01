@@ -29,6 +29,6 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
      - name: uplode file
-       run: azcopy copy 'test/world1.txt' 'https://artifactstorage1.blob.core.windows.net/prasanna123/world1.txt${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}'
+       run: az storage file copy start --source-uri 'test/world1.txt' --destination-path 'https://artifactstorage1.blob.core.windows.net/prasanna123/world1.txt' --sas-token ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
 
 
