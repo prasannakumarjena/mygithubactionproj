@@ -29,6 +29,6 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
      - name: uplode file
-       run: azcopy copy 'test/world4.txt' 'https://artifactstorage1.blob.core.windows.net/prasanna123/world4.txt'
+       run: azcopy copy 'test/world4.txt' 'https://artifactstorage1.blob.core.windows.net/prasanna123/world4.txt?sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2021-10-02T01:31:20Z&st=2021-10-01T17:31:20Z&spr=https&sig=CYxIz6s6kB76%2B7PDh9bQ6YQ7csmhky%2Fdpc%2FeMfjkFyE%3D'
 
 
