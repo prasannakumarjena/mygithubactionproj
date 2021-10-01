@@ -23,12 +23,12 @@ jobs:
      - run: mkdir test
      - run: echo hello > test/world1.txt
 
-     - name: Login to Azure  Cloud with Az
-       uses: azure/login@v1
-       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    # - name: Login to Azure  Cloud with Az
+     #  uses: azure/login@v1
+      # with:
+       # creds: ${{ secrets.AZURE_CREDENTIALS }}
         
      - name: uplode file
-       run: az storage file copy start --source-uri 'test/world1.txt' --destination-path 'https://artifactstorage1.blob.core.windows.net/prasanna123/world1.txt' --destination-share destshare  --sas-token ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+       run: azcopy copy 'test/world1.txt' 'https://artifactstorage1.blob.core.windows.net/prasanna123/abcd.txt{{ secrets.AZURE_STORAGE_CONNECTION_STRING }}'
 
 
