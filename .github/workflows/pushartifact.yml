@@ -23,12 +23,12 @@ jobs:
      - run: mkdir test
      - run: echo hello > test/world4.txt
 
-     - uses: bacongobbler/azure-blob-storage-upload@v1.2.0
+     - name: Login to Azure  Cloud with Az
+       uses: azure/login@v1
        with:
-       
-        connection_string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-        source_dir: 'test'
-        container_name: 'promotiontest-1'
-        sync: true
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+     - name: uplode file
+       run: azcopy copy 'test/world4.txt' 'https://artifactstorage1.blob.core.windows.net/prasanna123/world4.txt'
 
 
