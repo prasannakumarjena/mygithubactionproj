@@ -24,7 +24,7 @@ jobs:
        
      - name: version
        id: versionid
-       run: echo "::set-output name=versionid::1"  
+       run: echo "::set-output name=versionid::2"  
        
      - name: get repo name
        run: | 
