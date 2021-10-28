@@ -30,15 +30,18 @@ jobs:
        run: | 
            mkdir test
            echo hello > test/world1.txt
+           echo hello > test/world2.txt
+           echo hello > test/world3.txt
      
      - name: store zip
        run: zip -r ${{steps.reponame.outputs.reponame}}_${{steps.versionid.outputs.versionid}}.zip test
 
-     - name: Login to Azure
-       uses: azure/login@v1
+     - name: Azure CLI script
+       uses: azure/CLI@v1
        with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-        
-     - name: uplode file to Azure blob storage
-       run: azcopy copy '${{steps.reponame.outputs.reponame}}_${{steps.versionid.outputs.versionid}}.zip' '${{env.BLOB_URL}}/${{steps.reponame.outputs.reponame}}/${{steps.reponame.outputs.reponame}}_${{steps.versionid.outputs.versionid}}.zip${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}'
-
+        azcliversion: 2.0.72
+        inlineScript: |
+          az storage blob uplode-batch --sas-token ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }} --account-name artifactstorage1 --source test --destination prasanna123
+          
+          
+          
